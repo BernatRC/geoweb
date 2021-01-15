@@ -1,0 +1,55 @@
+<html>
+    <head>
+    <meta charset='utf-8' />
+    <title>Edificis</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+    <link href='css/estilobase.css' rel='stylesheet' />
+
+    <script src='js/edificis.js'></script>
+    <script>
+        //Añadir vuestor token y/o estilo !!
+        var map;
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoiYmVybmF0LXJjIiwiYSI6ImNranlpdzRpNjEyZm4yb2xzOWV5em0wdDkifQ.GhKYtX_Phm79RmYGivKviw';
+             map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/bernat-rc/ckjyk5m8521m817pe7xdnlwd9',
+                center: [2.16859, 41.3954],
+                zoom: 15,
+                attributionControl: false,
+                pitch: 45,
+                hash: true
+            });
+
+            map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+            map.addControl(new mapboxgl.NavigationControl());
+
+            map.addControl(
+                new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+            }));
+
+            map.on('load', function () {
+                addEdificiosCapa();
+            }); //fin onload
+
+        } // final init
+    </script>
+    </head>
+
+    <body onload="init()">
+        <div class="panelTopIzquierda">
+
+            <label id="altura">Més de 0 pisos</label>
+            <input  onChange="filtrarEdificios(this.value)" id="slider" type="range" min="1" max="50" step="1" value="0" />
+        </div>
+        <div id="map"></div>
+    </body>
+
+    </html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>MapBox bàsic</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <script>
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoiYmVybmF0LXJjIiwiYSI6ImNranlpdzRpNjEyZm4yb2xzOWV5em0wdDkifQ.GhKYtX_Phm79RmYGivKviw';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/bernat-rc/ckjyjax562t5s17p951x450du',
+                center: [2.16859, 41.3954],
+                zoom: 13,
+                hash:true,
+                attributionControl: false
+            });
+
+            map.on('load', function () {
+                map.addSource("viesciclables_source", {
+                    type: "vector",
+                    url: "mapbox://bernat-rc.dv91z708"
+                }); 
+
+                map.addLayer({
+                    id: "viasciclables",
+                    type: "line",
+                    source: "viesciclables_source",
+                    'source-layer': "vias_ciclables-4i78w7",
+                    paint:{
+                        'line-color':"#00ff00",
+                        "line-width":3
+                    }
+                });
+            });
+
+            map.on('click','viasciclables',function(e){
+
+            var text = "";
+                //console.info(e);
+                for (key in e.features[0].properties){
+
+                text += "<b>"+key+"</b>:"+e.features[0].properties[key]+"<br>";
+                }
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(text)
+                    .addTo(map);
+
+                });
+
+                map.on('mouseenter', 'viasciclables', function() {
+                map.getCanvas().style.cursor = 'pointer';                    
+                });
+
+                map.on('mouseleave', 'viasciclables', function() {
+                map.getCanvas().style.cursor = '';                    
+            });
+
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <div id="map"></div>
+</body>
+
+</html>  

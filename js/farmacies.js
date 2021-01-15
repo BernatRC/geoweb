@@ -1,5 +1,5 @@
 var layerFarmacies;
-var urlFarmacies = "datos/farmacies.geojson";
+var urlFarmacies = "datos/farmacias.geojson";
 
 function addDatosFarmacias() {
 

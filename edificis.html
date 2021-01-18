@@ -37,6 +37,7 @@
 
             map.on('load', function () {
                 addEdificiosCapa();
+                addPopupToMapEdificios("edificios")
             }); //fin onload
 
         } // final init
@@ -44,6 +45,7 @@
     </head>
 
     <body onload="init()">
+        <div class="panelTitol">Mapa Cadastre Barcelona</div>
         <div class="panelTopIzquierda">
 
             <label id="altura">Més de 0 pisos</label>

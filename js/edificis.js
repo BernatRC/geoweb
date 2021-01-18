@@ -52,13 +52,37 @@ function addEdificiosCapa() {
 function filtrarEdificios(valor) {
     map.setFilter("edificios", [">", "numberOfFl", parseInt(valor)]);
 
-    document.getElementById("altura").innerHTML = "Más de  <b>" + valor + "</b> pisos";
+    document.getElementById("altura").innerHTML = "Més de  <b>" + valor + "</b> pisos";
 
 }
 
-function addPopupToMapEdificios(nombreCapa) {
 
-    map.on('click', nombreCapa, function (e) {
+function verTextos(valor){
+
+    var estado = "visible";
+
+    if(valor){
+        estado = "visible";
+    } else {
+        estado = "none";
+    }
+
+    for (var i=0; i < map.getStyle().layers.length;i++){
+
+        if(map.getStyle().layers[i].id.indexOf("label")!=-1){
+
+            map.setLayoutProperty(map.getStyle().layers[i].id, "visibility", estado);
+        }
+
+    }
+
+
+}
+
+
+function addPopupToMapEdificios(edificios) {
+
+    map.on('click', edificios, function (e) {
 
         var text = "";
         //console.info(e);
@@ -91,11 +115,11 @@ function addPopupToMapEdificios(nombreCapa) {
 
     });
 
-    map.on('mouseenter', nombreCapa, function () {
+    map.on('mouseenter', edificios, function () {
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    map.on('mouseleave', nombreCapa, function () {
+    map.on('mouseleave', edificios, function () {
         map.getCanvas().style.cursor = '';
     });
 

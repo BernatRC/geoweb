@@ -1,7 +1,7 @@
 <html>
     <head>
     <meta charset='utf-8' />
-    <title>Mapa 3D</title>
+    <title>Model d'elevació 3D</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
@@ -27,25 +27,21 @@
             map.addControl(new mapboxgl.AttributionControl({ compact: true }));
             map.addControl(new mapboxgl.NavigationControl());
 
-
-
             map.on('load', function () {
-             //add3D();
-             add3DICGC()
-            });
+             add3D();
+            // add3DICGC();
+            }); //fin onload
 
         } // final init
     </script>
     </head>
 
     <body onload="init()">
-        <div class="panelTitol">Model elevació 3D Mundial</div>
-        <div class="panelTopIzquierda">
-
-            <label id="altura">3D</label>
-            <input  onChange="ver3D(this.checked)" id="textos" type="checked" checked>
-        </div>
-
+        <div class="panelTitol">Model d'elevació 3D</div>
+    <div class="panelTopIzquierda">
+        <p>Mostra el 3D</p>
+        <input id="textos" onChange= "ver3D(this.checked)" type="checkbox" checked />
+    </div>
         <div id="map"></div>
     </body>
 

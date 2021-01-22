@@ -57,6 +57,42 @@ var config = {
             callback: '',
             onChapterEnter: [],
             onChapterExit: []
+        },{
+            id: 'volcan3',
+            alignment: 'left',
+            hidden: true,
+            title: 'Parc Natural de la Zona Volcànica de la Garrotxa',
+            image: 'https://ca.wikipedia.org/wiki/Parc_Natural_de_la_Zona_Volc%C3%A0nica_de_la_Garrotxa#/media/Fitxer:Volc%C3%A0_del_Croscat.jpg',
+            description: 'El Parc Natural de la Zona Volcànica de la Garrotxa és un parc natural que es troba a la comarca de la Garrotxa. És el millor exponent de paisatge volcànic de la península Ibèrica. Té una quarantena de cons volcànics d'una edat compresa entre els 10.000[1] i els 700.000 anys, 10 cràters, 23 cons ben conservats i més de 20 colades de laves basàltiques.',
+            location: {
+                center: [ 2.48100045236776538, 42.17275451495915],
+                zoom: 16,
+                pitch: 60,
+                bearing: -43.2
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [],
+            onChapterExit: []
+        },{
+            id: 'volcan4',
+            alignment: 'left',
+            hidden: true,
+            title: 'Parc Natural de la Zona Volcànica de la Garrotxa',
+            image: 'https://ca.wikipedia.org/wiki/Parc_Natural_de_la_Zona_Volc%C3%A0nica_de_la_Garrotxa#/media/Fitxer:Volc%C3%A0_del_Croscat.jpg',
+            description: 'El Parc Natural de la Zona Volcànica de la Garrotxa és un parc natural que es troba a la comarca de la Garrotxa. És el millor exponent de paisatge volcànic de la península Ibèrica. Té una quarantena de cons volcànics d'una edat compresa entre els 10.000[1] i els 700.000 anys, 10 cràters, 23 cons ben conservats i més de 20 colades de laves basàltiques.',
+            location: {
+                center: [ 2.48100045236776538, 42.17275451495915],
+                zoom: 16,
+                pitch: 60,
+                bearing: -43.2
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [],
+            onChapterExit: []
         }
     ]
 };

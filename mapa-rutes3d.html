@@ -31,8 +31,23 @@
             map.on('load', function () {
              add3D();
              addRutas();
+             rotarCamara(0);
             // add3DICGC();
             }); //fin onload
+
+            map.on("click",function(e){
+                finalRotarCamara()
+
+                });
+            map.on("zoomstart",function(e){
+                finalRotarCamara()
+
+                });  
+
+            map.on("zoomend",function(e){
+                rotarCamara(0);
+
+            });
 
         } // final init
     </script>

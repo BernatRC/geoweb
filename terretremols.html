@@ -29,24 +29,21 @@
             }));
             map.addControl(new mapboxgl.NavigationControl());           
 
+            map.on("load", function () {
+                generarPeticionTerremotos();
+                addPopupToMap("terremotos");
+            });
+
+            map.on("zoomend", function () {
+                generarPeticionTerremotos();
+            });
+
+            map.on("moveend", function () {
+                generarPeticionTerremotos();
+            });
+
         } //fin init
 
-        map.on("load", function () {
-
-            generarPeticionTerremotos();
-            addPopupToMap("terremotos");
-
-        });
-
-        map.on("zoomend", function () {
-
-            generarPeticionTerremotos();
-        });
-
-        map.on("moveend", function () {
-
-            generarPeticionTerremotos();
-        });
     </script>
     </head>
 

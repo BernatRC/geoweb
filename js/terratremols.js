@@ -26,9 +26,9 @@ function terremotosGeonamesToGeoJSON(respuestaGeonames){
 
     return geoJSON;
 
-    } //fin funcion
+} //fin funcion
 
- function generarPeticionTerremotos() {
+function generarPeticionTerremotos() {
 
     var peticion = 'https://secure.geonames.org/earthquakesJSON?' +
         'north=' + map.getBounds()._ne.lat + '&' +

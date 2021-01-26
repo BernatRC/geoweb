@@ -81,7 +81,7 @@
       "source-layer": "building",
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(251, 251, 251, 1)",
+        "fill-color": "rgba(100, 210, 255, 1)",
         "fill-opacity": {"base": 1, "stops": [[13, 0], [16, 1]]},
         "fill-outline-color": "rgba(0, 0, 0, 1)",
         "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]}
@@ -120,7 +120,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": {
-          "stops": [[12, "rgba(181, 181, 181, 1)"], [16, "rgba(8, 8, 8, 1)"]]
+          "stops": [[12, "rgba(125, 255, 0, 1)"], [16, "rgba(8, 8, 8, 1)"]]
         },
         "line-width": {"stops": [[12, 0.5], [16, 1], [17, 3]]}
       }
